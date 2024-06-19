@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web:
+    build: .
+    volumes:
+      - .:/externalinterfacingapi
+    ports:
+      - "7000:7000"
+    image: app:externalInterfaceAPI
+    container_name: externalInterfaceAPI
+
+    command: sh -c "python manage.py runserver 0.0.0.0:7000 && echo 'Django app running at http://localhost:7000/'"
